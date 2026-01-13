@@ -13,9 +13,7 @@ jobs:
                 node-version: 22
             - name: Install dependencies
               run: npm install
-            - name: Run Express App
-              run: node server.js
-            - name: Terminate Express App
-              run: kill $(lsof -t -i:3000)
+            - name: Run Express App and Terminate it after 5 seconds
+              run: node server.js & sleep 5
             - name: Run Jest tests
               run: npm run test
