@@ -2,7 +2,7 @@ name: demo workflow
 on: push
 jobs:
     demo-job:
-        runs-on: ubuntu-22.04
+        runs-on: macos-26
         steps:
             - name: Run a test script
               run: echo "Hello World"
