@@ -6,3 +6,6 @@ jobs:
         steps:
             - name: Run a test script
               run: echo "Hello World"
+            - uses: actions/checkout@v4
+            - name: Install dependencies
+              run: npm install
