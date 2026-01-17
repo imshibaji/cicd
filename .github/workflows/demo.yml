@@ -3,6 +3,9 @@ on: push
 jobs:
     demo-job:
         runs-on: macos-26
+        env:
+            SERVER_NAME: $SERVER_NAME || default_server
+      
         steps:
             - name: Run a test script
               run: echo "Hello World"
