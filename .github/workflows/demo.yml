@@ -3,7 +3,7 @@ on: push
 jobs:
     demo-job:
         runs-on: macos-26
-        environment: development
+        # environment: development
         env:
             SERVER_NAME: ${{ vars.SERVER_NAME}}
         steps:
