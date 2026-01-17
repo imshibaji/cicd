@@ -4,7 +4,7 @@ jobs:
     demo-job:
         runs-on: macos-26
         env:
-            SERVER_NAME: $SERVER_NAME || default_server
+            SERVER_NAME: ${{ vars.SERVER_NAME }}
       
         steps:
             - name: Run a test script
