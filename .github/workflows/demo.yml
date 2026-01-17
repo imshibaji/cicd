@@ -7,7 +7,7 @@ jobs:
         env:
             SERVER_NAME: ${{ vars.SERVER_NAME}}
             PASSWORD: ${{ secrets.PASSWORD }}
-        steps:
+        step:
             - name: Run a test script
               run: echo "Hello World"
             - name: OS and Repo Info
