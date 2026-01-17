@@ -7,7 +7,7 @@ jobs:
             - name: Run a test script
               run: echo "Hello World"
             - name: Check Variables
-              run: echo "server is ${{ runner.os }}, repository is ${{ github.repository }}, branch is ${{ github.ref }}, variable SERVER_NAME is ${{ vars.SERVER_NAME }}, secret MY_SECRET is ${{ secrets.PASSWORD }}"
+              run: echo "server is ${{ runner.os }}, repository is ${{ github.repository }}, branch is ${{ github.ref }}, variable SERVER_NAME is $SERVER_NAME, secret MY_SECRET is ${{ secrets.PASSWORD }}"
             # - uses: actions/checkout@v4
             # - name: Use Node.js
             #   uses: actions/setup-node@v3
