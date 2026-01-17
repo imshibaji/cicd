@@ -10,8 +10,13 @@ jobs:
         steps:
             - name: Run a test script
               run: echo "Hello World"
+            - name: OS and Repo Info
+              run: |
+                echo "This job is running on a ${{ runner.os }} server"
+                echo "The repository is ${{ github.repository }}"
+                echo "The branch or tag ref that triggered the workflow is ${{ github.ref }}"
             - name: Check Variables
-              run: echo "server is ${{ runner.os }}, repository is ${{ github.repository }}, branch is ${{ github.ref }}, variable SERVER_NAME is $SERVER_NAME, secret MY_SECRET is $PASSWORD"
+              run:  echo "variable SERVER_NAME is $SERVER_NAME, secret MY_SECRET is $PASSWORD"
             # - uses: actions/checkout@v4
             # - name: Use Node.js
             #   uses: actions/setup-node@v3
