@@ -2,7 +2,7 @@ name: demo workflow
 on: push
 jobs:
     demo-job:
-        runs-on: macos-26
+        runs-on: ubuntu-latest
         # environment: development
         env:
             SERVER_NAME: ${{ vars.SERVER_NAME}}
