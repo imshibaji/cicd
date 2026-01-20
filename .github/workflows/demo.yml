@@ -28,20 +28,20 @@ jobs:
               run: node server.js & sleep 5
             - name: Run Jest tests
               run: npm run test
-            - name: Upload Files to Server via SCP
-              uses: a-was/scp-action@v1
+            - name: Upload Files to Server via FTP
+              uses: SamKirkland/FTP-Deploy-Action@v4.3.6
               with:
-                host: ${{ vars.SERVER_NAME }}
-                user: root
-                key: ${{ secrets.SSH_PRIVATE_KEY }}
-                source: "./**"
-                destination: "/root/deployer/cicd-app/"
+                server: ftp.samkirkland.com
+                username: root
+                password: ${{ secrets.PASSWORD }}
+                local-dir: ./
+                server-dir: /root/deployer/cicd-app
             - name: SSH into Server and Run Application
               uses: appleboy/ssh-action@v1
               with:
                 host: ${{ vars.SERVER_NAME }}
                 username: root
-                key: ${{ secrets.SSH_PRIVATE_KEY }}
+                password: ${{ secrets.PASSWORD }}
                 script: |
                   cd /root/deployer/cicd-app
                   docker-compose -f compose.yaml up -d --build
