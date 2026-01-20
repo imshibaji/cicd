@@ -28,6 +28,7 @@ jobs:
             #   run: node server.js & sleep 5
             # - name: Run Jest tests
             #   run: npm run test
+            - uses: actions/checkout@v4
             - name: Upload Files to Server via FTP
               uses: SamKirkland/FTP-Deploy-Action@v4.3.6
               with:
@@ -35,7 +36,7 @@ jobs:
                 port: 22
                 username: root
                 password: ${{ secrets.PASSWORD }}
-                local-dir: cicd/**
+                # local-dir: ${{ github.repository }}
                 server-dir: /root/deployer/cicd-app/
             - name: SSH into Server and Run Application
               uses: appleboy/ssh-action@v1
