@@ -29,14 +29,13 @@ jobs:
             - name: Run Jest tests
               run: npm run test
             - name: Upload Files to Server via SCP
-              uses: a-was/scp-action@v1
+              uses: appleboy/scp-action@v1
               with:
                 host: ${{ vars.SERVER_NAME }}
-                port: 22
-                user: root
+                username: root
                 key: ${{ secrets.SSH_PRIVATE_KEY }}
                 source: "cicd/*"
-                destination: "/root/deployer/cicd-app/"
+                target: "/root/deployer/cicd-app/"
             - name: SSH into Server and Run Application
               uses: appleboy/ssh-action@v1
               with:
