@@ -35,7 +35,7 @@ jobs:
                 username: root
                 password: ${{ secrets.PASSWORD }}
                 local-dir: ./
-                server-dir: /root/deployer/cicd-app
+                server-dir: /root/deployer/cicd-app/
             - name: SSH into Server and Run Application
               uses: appleboy/ssh-action@v1
               with:
