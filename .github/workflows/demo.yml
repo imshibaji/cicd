@@ -34,8 +34,8 @@ jobs:
               uses: SamKirkland/FTP-Deploy-Action@v4.3.6
               with:
                 server: ${{ vars.SERVER_NAME }}
-                protocol: ftps
                 port: 22
+                timeout: 600000
                 username: root
                 password: ${{ secrets.PASSWORD }}
                 # local-dir: ${{ github.repository }}
