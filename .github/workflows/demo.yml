@@ -48,7 +48,7 @@ jobs:
             #       **/node_modules/**
             #       **/n8n*/**
             - name: Upload Files to Server via SCP
-              uses: appleboy/scp-action@v0.1.4
+              uses: appleboy/scp-action@v1
               with:
                 host: ${{ vars.SERVER_NAME }}
                 username: root
