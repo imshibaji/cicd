@@ -60,3 +60,6 @@ services:
 #   db-password:
 #     file: db/password.txt
 
+networks:
+  proxy:
+    external: true
