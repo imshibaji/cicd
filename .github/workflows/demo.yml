@@ -30,23 +30,31 @@ jobs:
             #   run: npm run test
             - name: 🚚 Get latest code
               uses: actions/checkout@v4
-            - name: Upload Files to Server via SFTP
-              uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+            # - name: Upload Files to Server via SFTP
+            #   uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+            #   with:
+            #     server: ${{ vars.SERVER_NAME }}
+            #     protocol: ftps
+            #     port: 22
+            #     # timeout: 600000
+            #     username: root
+            #     password: ${{ secrets.PASSWORD }}
+            #     # local-dir: ${{ github.repository }}
+            #     server-dir: /root/deployer/cicd-app/
+            #     dry-run: true
+            #     exclude: |
+            #       **/.git*
+            #       **/.git*/**
+            #       **/node_modules/**
+            #       **/n8n*/**
+            - name: Upload Files to Server via SCP
+              uses: appleboy/scp-action@v0.1.4
               with:
-                server: ${{ vars.SERVER_NAME }}
-                protocol: ftps
-                port: 22
-                # timeout: 600000
+                host: ${{ vars.SERVER_NAME }}
                 username: root
                 password: ${{ secrets.PASSWORD }}
-                # local-dir: ${{ github.repository }}
-                server-dir: /root/deployer/cicd-app/
-                dry-run: true
-                exclude: |
-                  **/.git*
-                  **/.git*/**
-                  **/node_modules/**
-                  **/n8n*/**
+                source: "."
+                target: "/root/deployer/cicd-app"
             - name: SSH into Server and Run Application
               uses: appleboy/ssh-action@v1
               with:
