@@ -63,4 +63,4 @@ jobs:
                 password: ${{ secrets.PASSWORD }}
                 script: |
                   cd /root/deployer/cicd-app
-                  docker-compose -f compose.yaml up -d --build
+                  docker compose -f compose.yaml up -d --build
