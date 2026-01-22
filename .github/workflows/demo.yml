@@ -35,11 +35,12 @@ jobs:
               with:
                 server: ${{ vars.SERVER_NAME }}
                 port: 22
-                timeout: 600000
+                # timeout: 600000
                 username: root
                 password: ${{ secrets.PASSWORD }}
                 # local-dir: ${{ github.repository }}
                 server-dir: /root/deployer/cicd-app/
+                dry-run: true
                 exclude: |
                   **/.git*
                   **/.git*/**
